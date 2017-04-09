@@ -1,6 +1,8 @@
 # Template-Markdown2PDF
 将Markdown转换为PDF的模板。
 
+https://github.com/isagalaev/highlight.js/blob/master/src/styles
+
 ## 说明
 
 [remarkable](https://github.com/jonschlinkert/remarkable) 同样是一个将 Markdown 转换为 HTML 的库，[markdown-pdf](https://github.com/alanshaw/markdown-pdf) 基于它将 Markdown 转换为 PDF。

@@ -1,7 +1,8 @@
 "use strict";
 
 
-const gulp = require('gulp'),
+const process = require('process'),
+    gulp = require('gulp'),
     $ = require('gulp-load-plugins')(),
     highlight = require('highlight.js'),
     marked = require('marked'),
@@ -9,7 +10,7 @@ const gulp = require('gulp'),
 
 
 // 重写 marked heading 部分
-renderer.heading = function (text, level) {
+renderer.heading = (text, level) => {
     const REG_HREF = /\s*<?([\s\S]*?)>?(?:\s+['"]([\s\S]*?)['"])?\s*/;
     let id = text.replace(REG_HREF, '')
         .replace('&#39', '\\')
@@ -69,7 +70,22 @@ gulp.task('build', () => {
          */
         .pipe($.insert.prepend('<link rel="stylesheet" href="assets/highlight.css">\n'))
         .pipe($.insert.prepend('<link rel="stylesheet" href="assets/pdf.css">\n'))
+        .pipe(gulp.dest('dist'))
+        /*
+         * HTML 转换为 PDF
+         *
+         */
+        .pipe($.htmlPdf({
+            format: 'A4',
+            base: 'file://' + __dirname + '/', // 资源相对路径
+            border: {
+                top: '9mm',
+                right: '11.5mm',
+                bottom: '9mm',
+                left: '11.5mm'
+            }
 
+        }))
 
 
         .pipe(gulp.dest('dist'));
@@ -77,3 +93,17 @@ gulp.task('build', () => {
 
 // default
 gulp.task('default', ['build']);
+
+
+//var fs = require('fs');
+//var pdf = require('html-pdf');
+//var html = fs.readFileSync('./output.html', 'utf-8');
+//var options = {
+//"format": "A4",
+//"base": 'file:///data/node/md2pdf/'
+//};
+
+//pdf.create(html, options).toFile('./README.pdf', function(err, res) {
+//  if (err) return console.log(err);
+//  console.log(res); // { filename: '/app/businesscard.pdf' }
+//});
