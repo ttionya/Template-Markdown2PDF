@@ -5,8 +5,13 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}ar
 /* ===================================================================================== */
 
 @font-face {
-    font-family: "msyh";
+    font-family: msyh;
     src: url("./msyh.ttf");
+}
+
+@font-face {
+    font-family: Menlo;
+    src: url("./menlo.ttf");
 }
 
 body {
@@ -16,7 +21,7 @@ body {
     -ms-text-size-adjust: 100%;
     text-size-adjust: 100%;
     color: #333;
-    font-family: msyh, Helvetica, Arial, freesans, sans-serif;
+    font-family: Menlo, msyh;
     font-size: 16px;
     line-height: 1.6;
     word-wrap: break-word;
