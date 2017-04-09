@@ -1,0 +1,25 @@
+{
+  "name": "template-markdown2pdf",
+  "version": "1.0.0",
+  "description": "将Markdown转换为PDF的模板。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ttionya/Template-Markdown2PDF.git"
+  },
+  "author": "ttionya",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ttionya/Template-Markdown2PDF/issues"
+  },
+  "homepage": "https://github.com/ttionya/Template-Markdown2PDF#readme",
+  "dependencies": {
+    "gulp": "^3.9.0",
+    "gulp-doctoc": "^0.1.0",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-markdown": "^1.2.0"
+  }
+}
