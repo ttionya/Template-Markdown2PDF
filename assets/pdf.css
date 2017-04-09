@@ -52,7 +52,7 @@ h2 {
 }
 
 h3 {
-    font-size: .8rem;
+    font-size: .85rem;
 }
 
 h4 {
@@ -190,7 +190,7 @@ pre {
 blockquote {
     margin-left: 0;
     padding: 0 .2rem 0 .7rem;
-    color: #666;
+    color: #444;
     border-left: 4px solid #ddd;
 }
 
@@ -210,10 +210,10 @@ pre {
     font-size: .6rem;
 }
 
-pre {
-    margin-top: 0;
-    margin-bottom: 0;
-}
+/*pre {*/
+    /*margin-top: 0;*/
+    /*margin-bottom: 0;*/
+/*}*/
 
 pre > code {
     display: block;

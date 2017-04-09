@@ -4,6 +4,7 @@
 const process = require('process'),
     gulp = require('gulp'),
     $ = require('gulp-load-plugins')(),
+    runSequence = require('run-sequence'),
     highlight = require('highlight.js'),
     marked = require('marked'),
     renderer = new marked.Renderer();
@@ -27,6 +28,12 @@ renderer.heading = (text, level) => {
         + '</h' + level + '>';
 };
 
+
+// clean
+gulp.task('clean', () => {
+    return gulp.src('dist', { read: false })
+        .pipe($.rimraf());
+});
 
 // build
 gulp.task('build', () => {
@@ -71,7 +78,7 @@ gulp.task('build', () => {
          */
         .pipe($.insert.prepend('<link rel="stylesheet" href="assets/highlight.css">\n'))
         .pipe($.insert.prepend('<link rel="stylesheet" href="assets/pdf.css">\n'))
-        .pipe(gulp.dest('dist'))
+
         /*
          * HTML 转换为 PDF
          *
@@ -88,9 +95,10 @@ gulp.task('build', () => {
 
         }))
 
-
         .pipe(gulp.dest('dist'));
 });
 
 // default
-gulp.task('default', ['build']);
+gulp.task('default', ()=> {
+    runSequence('clean', 'build');
+});

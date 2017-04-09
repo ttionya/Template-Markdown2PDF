@@ -4,7 +4,7 @@
   "description": "将Markdown转换为PDF的模板。",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "gulp"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,8 @@
     "gulp-insert": "^0.5.0",
     "gulp-load-plugins": "^1.5.0",
     "gulp-markdown": "^1.2.0",
-    "highlight.js": "^9.10.0"
+    "gulp-rimraf": "^0.2.0",
+    "highlight.js": "^9.10.0",
+    "run-sequence": "^1.2.0"
   }
 }
