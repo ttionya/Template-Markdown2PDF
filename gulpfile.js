@@ -42,13 +42,14 @@ gulp.task('build', () => {
          * <!-- END doctoc -->
          * 指定需要生成的地方
          *
+         * 还是不要开启比较好，因为生成的 PDF 是无法正常跳转的
          */
-        .pipe($.doctoc({
-            title: "目录",
-            depth: 3,
-            mode: "github.com",
-            notitle: false
-        }))
+        // .pipe($.doctoc({
+        //     title: "目录",
+        //     depth: 3,
+        //     mode: "github.com",
+        //     notitle: false
+        // }))
 
         // Get rid of the HTML character entities from the anchor values.
         // .pipe($.replace(/&x27e[89]/g, ''))
