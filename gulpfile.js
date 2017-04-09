@@ -3,10 +3,12 @@
 
 const gulp = require('gulp'),
     $ = require('gulp-load-plugins')(),
+    highlight = require('highlight.js'),
     marked = require('marked'),
     renderer = new marked.Renderer();
 
 
+// 重写 marked heading 部分
 renderer.heading = function (text, level) {
     const REG_HREF = /\s*<?([\s\S]*?)>?(?:\s+['"]([\s\S]*?)['"])?\s*/;
     let id = text.replace(REG_HREF, '')
@@ -52,10 +54,11 @@ gulp.task('build', () => {
 
         /*
          * 执行 marked
-         * 
+         *
          */
         .pipe($.markdown({
-            renderer: renderer
+            renderer: renderer,
+            highlight: code => highlight.highlightAuto(code).value
         }))
 
         .pipe(gulp.dest('dist'));
