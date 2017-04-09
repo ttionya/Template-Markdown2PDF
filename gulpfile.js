@@ -61,6 +61,17 @@ gulp.task('build', () => {
             highlight: code => highlight.highlightAuto(code).value
         }))
 
+        /*
+         * HTML 前插入 css 文件
+         *
+         * 反向
+         *
+         */
+        .pipe($.insert.prepend('<link rel="stylesheet" href="assets/highlight.css">\n'))
+        .pipe($.insert.prepend('<link rel="stylesheet" href="assets/pdf.css">\n'))
+
+
+
         .pipe(gulp.dest('dist'));
 });
 
