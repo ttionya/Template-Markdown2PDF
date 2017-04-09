@@ -94,17 +94,3 @@ gulp.task('build', () => {
 
 // default
 gulp.task('default', ['build']);
-
-
-//var fs = require('fs');
-//var pdf = require('html-pdf');
-//var html = fs.readFileSync('./output.html', 'utf-8');
-//var options = {
-//"format": "A4",
-//"base": 'file:///data/node/md2pdf/'
-//};
-
-//pdf.create(html, options).toFile('./README.pdf', function(err, res) {
-//  if (err) return console.log(err);
-//  console.log(res); // { filename: '/app/businesscard.pdf' }
-//});
